@@ -2,3 +2,7 @@
 backend/todo/__pycache__/
 backend/backend/__pycache__/
 todo/migrations/__pycache__/
+backend/todo/migrations/
+backend/todo/migrations/__pycache__/__init__.cpython-310.pyc
+backend/todo/migrations/__pycache__/0001_initial.cpython-310.pyc
+backend/todo/migrations/__pycache__/0002_rename_todoitem_todo.cpython-310.pyc
