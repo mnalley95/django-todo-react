@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Modal from "./components/Modal";
 import axios from "axios";
+import Cookies from 'js-cookie';
+
+var csrftoken = Cookies.get('csrftoken');
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +26,7 @@ class App extends Component {
 
   refreshList = () => {
     axios
-      .get("/api/todos/")
+      .get("/api/todos/", { headers: { 'X-CSRFToken': csrftoken } })
       .then((res) => this.setState({ todoList: res.data }))
       .catch((err) => console.log(err));
   };
@@ -37,18 +40,18 @@ class App extends Component {
 
     if (item.id) {
       axios
-        .put(`/api/todos/${item.id}/`, item)
+        .put(`/api/todos/${item.id}/`, item, { headers: { 'X-CSRFToken': csrftoken } })
         .then((res) => this.refreshList());
       return;
     }
     axios
-      .post("/api/todos/", item)
+      .post("/api/todos/", item, { headers: { 'X-CSRFToken': csrftoken } })
       .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
     axios
-      .delete(`/api/todos/${item.id}/`)
+      .delete(`/api/todos/${item.id}/`, { headers: { 'X-CSRFToken': csrftoken } })
       .then((res) => this.refreshList());
   };
 

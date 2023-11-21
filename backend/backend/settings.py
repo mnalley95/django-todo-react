@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "todo",
     "corsheaders",
     "rest_framework",
+    "todo",
 ]
 
 MIDDLEWARE = [
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 ]
 
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000", "http://192.168.86.25:3000"]
 
 ROOT_URLCONF = "backend.urls"
 
